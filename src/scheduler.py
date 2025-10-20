@@ -2,12 +2,11 @@ import datetime
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from scraper import get_timetable
 from db import get_user
-import discord
 from discord.ext import commands
 
 scheduler = AsyncIOScheduler()
 
-async def send_daily(bot: commands.bot):
+async def send_daily(bot: commands.Bot):
     """Posílá rozvrh v 22:00"""
     for user in bot.users:
         info = get_user(user.id)
@@ -29,6 +28,6 @@ def format_timetable(data):
         text.append("")
     return "\n".join(text)
 
-def start(bot):
+def start(bot: commands.Bot):
     scheduler.add_job(send_daily, "cron", hour=22, minute=0, args=[bot])
     scheduler.start()
