@@ -1,21 +1,23 @@
 # 📅 BakaNotify
 
-> Discord bot, který ti pošle rozvrh z Bakalářů a upozorní tě, co máš za chvíli za hodinu.
+Discord bot, který ti automaticky pošle rozvrh z Bakalářů do DM a připomene, co máš za chvíli za hodinu.
 
 ---
 
-## 🚀 Funkce
-- 📥 Automatické získávání rozvrhu z veřejného webu Bakalářů (bez loginu)
-- ⏰ Denní notifikace v 22:00 s rozvrhem na zítřek
-- 🔔 Upozornění před každou hodinou („Za 5 minut máš MAT - učebna B12“)
-- ⚙️ Nastavení třídy a času přes příkazy na Discordu
-- 🧑‍🤝‍🧑 Multi-user podpora (každý uživatel má vlastní nastavení)
+### 🚀 Funkce
+- 📥 Stahuje veřejný rozvrh bez loginu
+- 🔔 Denní notifikace v 22:00
+- ⚙️ `/setup` pro nastavení vlastní třídy
+- 💬 `/rozvrh` pro ruční vyžádání rozvrhu
 
 ---
 
-## ⚡ Instalace
+### 💡 Instalace
 
-### 1️⃣ Klonuj repozitář
 ```bash
-git clone https://github.com/JirkaN123/BakaNotify.git
+git clone https://github.com/<tvoje_jmeno>/BakaNotify.git
 cd BakaNotify
+pip install -r requirements.txt
+copy .env.example .env
+# Uprav .env s tvým Discord tokenem
+python src/main.py
