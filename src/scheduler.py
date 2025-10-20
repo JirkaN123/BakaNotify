@@ -3,10 +3,11 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from scraper import get_timetable
 from db import get_user
 import discord
+from discord.ext import commands
 
 scheduler = AsyncIOScheduler()
 
-async def send_daily(bot: discord.Bot):
+async def send_daily(bot: commands.bot):
     """Posílá rozvrh v 22:00"""
     for user in bot.users:
         info = get_user(user.id)
@@ -16,12 +17,12 @@ async def send_daily(bot: discord.Bot):
             msg = format_timetable(timetable)
             try:
                 await user.send(f"📅 **Rozvrh pro {class_name} na zítřek:**\n\n{msg}")
-            except:
-                print(f"Nelze poslat DM uživateli {user}")
+            except Exception as e:
+                print(f"❌ Nelze poslat DM uživateli {user}: {e}")
 
 def format_timetable(data):
     text = []
-    for den, hodiny v data.items():
+    for den, hodiny in data.items():
         text.append(f"**{den}**")
         for h in hodiny:
             text.append(f"{h['hour']}. {h['subject']} ({h['teacher']}) – {h['room']}")

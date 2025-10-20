@@ -15,7 +15,7 @@ Discord bot, který ti automaticky pošle rozvrh z Bakalářů do DM a připomen
 ### 💡 Instalace
 
 ```bash
-git clone https://github.com/<tvoje_jmeno>/BakaNotify.git
+git clone https://github.com/JirkaN123/BakaNotify.git
 cd BakaNotify
 pip install -r requirements.txt
 copy .env.example .env

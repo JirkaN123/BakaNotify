@@ -13,7 +13,7 @@ async def on_ready():
     init_db()
     start(bot)
 
-@bot.slash_command(description="Zobraz rozvrh pro zadanou třídu")
+@bot.add(description="Zobraz rozvrh pro zadanou třídu")
 async def rozvrh(ctx, trida: str = DEFAULT_CLASS):
     await ctx.defer()
     data = get_timetable(trida)
